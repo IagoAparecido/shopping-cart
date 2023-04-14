@@ -1,15 +1,14 @@
 import useCart from "../hooks/useCart";
 import useProducts from "../hooks/useProducts";
-import { UseCartContextType } from "../context/CartProvider";
-
+import { UseProductsContextType } from "../context/ProductsProvider";
 import { ReactElement } from "react";
 import Product from "./Product";
 
-function ProductList() {
+const ProductList = () => {
   const { dispatch, REDUCER_ACTIONS, cart } = useCart();
   const { products } = useProducts();
 
-  let pageContent: ReactElement | ReactElement[] = <p>Carregando...</p>;
+  let pageContent: ReactElement | ReactElement[] = <p>Loading...</p>;
 
   if (products?.length) {
     pageContent = products.map((product) => {
@@ -29,7 +28,6 @@ function ProductList() {
 
   const content = <main className="main main--products">{pageContent}</main>;
 
-  return <div>ProductList</div>;
-}
-
+  return content;
+};
 export default ProductList;

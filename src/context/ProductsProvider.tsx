@@ -1,4 +1,4 @@
-import { ReactElement, createContext, useState, useEffect } from "react";
+import { createContext, ReactElement, useState, useEffect } from "react";
 
 export type ProductType = {
   sku: string;
@@ -6,8 +6,7 @@ export type ProductType = {
   price: number;
 };
 
-// const initState: ProductType[] = [];
-
+//const initState: ProductType[] = []
 const initState: ProductType[] = [
   {
     sku: "item0001",
@@ -22,7 +21,7 @@ const initState: ProductType[] = [
   {
     sku: "item0003",
     name: "Deluxe Widget",
-    price: 92.99,
+    price: 29.99,
   },
 ];
 
@@ -38,19 +37,17 @@ export const ProductsProvider = ({ children }: ChildrenType): ReactElement => {
   const [products, setProducts] = useState<ProductType[]>(initState);
 
   // useEffect(() => {
-  //   const fetchProducts = async (): Promise<ProductType[]> => {
-  //     const data = await fetch("http://localhost:3500/products")
-  //       .then((res) => {
-  //         return res.json();
-  //       })
-  //       .catch((err) => {
-  //         if (err instanceof Error) console.log(err.message);
-  //       });
-  //     return data;
-  //   };
+  //     const fetchProducts = async (): Promise<ProductType[]> => {
+  //         const data = await fetch('http://localhost:3500/products').then(res => {
+  //             return res.json()
+  //         }).catch(err => {
+  //             if (err instanceof Error) console.log(err.message)
+  //         })
+  //         return data
+  //     }
 
-  //   fetchProducts().then((products) => setProducts(products));
-  // }, []);
+  //     fetchProducts().then(products => setProducts(products))
+  // }, [])
 
   return (
     <ProductsContext.Provider value={{ products }}>
